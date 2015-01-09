@@ -31,6 +31,72 @@ module.exports = function (grunt) {
 
             var assetUrl_list = assetUrls;
 
+             if(basicSrc_list.length==0){
+grunt.file.expandMapping(basic + assetUrl).forEach(function (f) {
+
+                        var data = grunt.file.read(fileSrc);
+
+                        assetUrl = f.src + "";
+
+                        if (grunt.file.exists(assetUrl)) {
+
+                            var assetData = grunt.file.read(assetUrl);
+
+                            assetUrl = assetUrl.substring(assetUrl.lastIndexOf('/'), assetUrl.length);
+
+                            if (data.indexOf(assetUrl) >= 0) {
+
+                                var reg = new RegExp('".*' + assetUrl + '.*"', 'g');
+
+                                var fullAssetUrl = reg.exec(data).toString();
+
+                                var _name = null;
+
+                                var _url = fullAssetUrl.substring(fullAssetUrl.indexOf(assetUrl), fullAssetUrl.length - 1);
+
+                                if (fullAssetUrl.indexOf(".js") >= 0) {
+
+                                    var _split = _url.split(".js");
+
+                                    if (fullAssetUrl.indexOf("?v=") >= 0) {
+
+                                        _name = _split[0] + ".js" + _split[1].substring(0, 16);
+
+                                    } else {
+
+                                        _name = _url.split(".js")[0] + ".js";
+
+                                    }
+                                } else if (fullAssetUrl.indexOf(".css") >= 0) {
+
+                                    var _split = _url.split(".css");
+
+                                    if (fullAssetUrl.indexOf("?v=") >= 0) {
+
+                                        _name = _split[0] + ".css" + _split[1].substring(0, 16);
+
+                                    } else {
+
+                                        _name = _url.split(".css")[0] + ".css";
+
+                                    }
+                                }
+
+                                var timestamp = (new Date()).valueOf() + "";
+
+                                var newurl = getNewUrl(_name, timestamp);
+
+                                var newdata = data.replace(_name, newurl);
+
+                                if (grunt.file.write(fileSrc, newdata)) {
+                                    grunt.log.success(fileSrc + ' add js or css version successfully');
+                                }
+                            } else {
+                                //grunt.log.warn('asset not found in file ' + fileSrc);
+                            }
+             }else{
+
+            
             basicSrc_list.forEach(function (basic) {
 
                 assetUrl_list.forEach(function (assetUrl) {
@@ -101,7 +167,7 @@ module.exports = function (grunt) {
                             //grunt.log.warn("file not found:" + assetUrl);
                         }
                     })
-                })
+                }) }
             });
         }
     }

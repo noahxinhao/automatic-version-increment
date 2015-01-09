@@ -1,7 +1,7 @@
 {
   "name": "automatic-version-increment",
   "description": "control the cache of assets by appending timestamp hash to asset url",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "https://github.com/noahxinhao/automatic-version-increment",
   "author": {
     "name": "Jessie Han",
