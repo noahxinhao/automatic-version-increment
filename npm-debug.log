@@ -1,0 +1,125 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/noahli/install/node-v0.10.33-linux-x64/bin/node',
+1 verbose cli   '/home/noahli/install/node-v0.10.33-linux-x64/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /home/noahli/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/home/noahli/.npm/automatic-version-increment/0.1.1/package.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /home/noahli/.npm/automatic-version-increment/0.1.1/package.tgz
+12 verbose folder .
+13 info prepublish automatic-version-increment@0.1.1
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /home/noahli/.npm/1f1177db-tar.lock
+16 silly lockFile 19bbf23e-sion-increment-0-1-1-package-tgz tar:///home/noahli/.npm/automatic-version-increment/0.1.1/package.tgz
+17 verbose lock tar:///home/noahli/.npm/automatic-version-increment/0.1.1/package.tgz /home/noahli/.npm/19bbf23e-sion-increment-0-1-1-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 19bbf23e-sion-increment-0-1-1-package-tgz tar:///home/noahli/.npm/automatic-version-increment/0.1.1/package.tgz
+21 silly lockFile 19bbf23e-sion-increment-0-1-1-package-tgz tar:///home/noahli/.npm/automatic-version-increment/0.1.1/package.tgz
+22 silly lockFile 6c08ca2c--version-increment-0-1-1-package /home/noahli/.npm/automatic-version-increment/0.1.1/package
+23 verbose lock /home/noahli/.npm/automatic-version-increment/0.1.1/package /home/noahli/.npm/6c08ca2c--version-increment-0-1-1-package.lock
+24 silly lockFile 6c08ca2c--version-increment-0-1-1-package /home/noahli/.npm/automatic-version-increment/0.1.1/package
+25 silly lockFile 6c08ca2c--version-increment-0-1-1-package /home/noahli/.npm/automatic-version-increment/0.1.1/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { name: 'automatic-version-increment',
+28 silly publish   description: 'control the cache of assets by appending timestamp hash to asset url',
+28 silly publish   version: '0.1.1',
+28 silly publish   homepage: 'https://github.com/noahxinhao/automatic-version-increment',
+28 silly publish   author: { name: 'Jessie Han', email: 'noahxinhao@gmail.com' },
+28 silly publish   repository:
+28 silly publish    { type: 'git',
+28 silly publish      url: 'git://github.com/noahxinhao/automatic-version-increment.git' },
+28 silly publish   bugs: { url: 'https://github.com/noahxinhao/automatic-version-increment/issues' },
+28 silly publish   licenses:
+28 silly publish    [ { type: 'MIT',
+28 silly publish        url: 'https://github.com/noahxinhao/automatic-version-increment/blob/master/LICENSE-MIT' } ],
+28 silly publish   main: 'Gruntfile.js',
+28 silly publish   engines: { node: '>= 0.8.0' },
+28 silly publish   scripts: { test: 'grunt test' },
+28 silly publish   devDependencies:
+28 silly publish    { 'grunt-contrib-clean': '~0.4.0',
+28 silly publish      'grunt-contrib-nodeunit': '~0.2.0',
+28 silly publish      grunt: '~0.4.1' },
+28 silly publish   peerDependencies: { grunt: '~0.4.1' },
+28 silly publish   keywords: [ 'gruntplugin,cache control,asset,hash' ],
+28 silly publish   readme: '# automatic-version-increment\n\ncontrol the cache of assets by appending timestamp hash to asset url\n\n## Getting Started\nThis plugin requires Grunt `~0.4.1`\n\nIf you haven\'t used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you\'re familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-cache --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-cache\');\n```\n\n## The "cache" task\n\n### Overview\nIn your project\'s Gruntfile, add a section named `cache` to the data object passed into `grunt.initConfig()`.\n\n```js\ngrunt.initConfig({\n    cache: {\n      js: {\n        options: {\n        },\n\t\tassetUrl:\'demo/js/hello.js\',\n        files: {\n          \'tmp\': [\'demo/index.html\'],\n        },\n      },\n    },\n});\n```\n\n\n\n### Usage Examples\n\n#### Default Options\nIn this example, we have index.html which contains hello.js and hello.css.\nIn Gruntfile.js, write as below, then `grunt`, we can get the index.html which has assets url with timestamp.\n\n`assetUrl` is the css or js file path\n`files` is the file which contains the assets(usually is html file)\n\nNotice to write the correct path.\n\n```js\ngrunt.initConfig({\n    cache: {\n      js: {\n        options: {\n        },\n\t\tassetUrl:\'demo/js/hello.js\',\n        files: {\n          \'tmp\': [\'demo/index.html\'],\n        },\n      },\n      css: {\n        options: {\n        },\n\t\tassetUrl:\'demo/css/hello.css\',\n        files: {\n          \'tmp\': [\'demo/index.html\'],\n        },\n      },\n    },\n});\n```\n\n\n## Contributing\nIn lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).\n\n## Release History\n_(Nothing yet)_\n',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   _id: 'automatic-version-increment@0.1.1',
+28 silly publish   dist:
+28 silly publish    { shasum: '7e03575408b2177ccd00636f8abbc47645cb60b5',
+28 silly publish      tarball: 'http://registry.npmjs.org/automatic-version-increment/-/automatic-version-increment-0.1.0.tgz' },
+28 silly publish   _from: '.',
+28 silly publish   _npmVersion: '1.3.8',
+28 silly publish   _npmUser: { name: 'noahxinhao', email: 'noahxinhao@gmail.com' },
+28 silly publish   maintainers: [ { name: 'noahxinhao', email: 'noahxinhao@gmail.com' } ],
+28 silly publish   directories: {},
+28 silly publish   _shasum: '496d18b038900452bdad928b11423777b9fe4ba1',
+28 silly publish   _resolved: 'https://registry.npmjs.org/automatic-version-increment/automatic-version-increment-0.1.0.tgz',
+28 silly publish   gitHead: '426020a60aa7904171472278714b98f8dd159e36' }
+29 verbose request where is /automatic-version-increment
+30 verbose request registry https://registry.npmjs.org/
+31 verbose request id e66724d35c552760
+32 verbose url raw /automatic-version-increment
+33 verbose url resolving [ 'https://registry.npmjs.org/',
+33 verbose url resolving   './automatic-version-increment' ]
+34 verbose url resolved https://registry.npmjs.org/automatic-version-increment
+35 verbose request where is https://registry.npmjs.org/automatic-version-increment
+36 info trying registry request attempt 1 at 14:16:29
+37 http PUT https://registry.npmjs.org/automatic-version-increment
+38 http 403 https://registry.npmjs.org/automatic-version-increment
+39 verbose headers { date: 'Fri, 09 Jan 2015 06:16:29 GMT',
+39 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+39 verbose headers   'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=60',
+39 verbose headers   'content-length': '230',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   'x-served-by': 'cache-ty66-TYO',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1420784189.616436,VS0,VE224',
+39 verbose headers   'keep-alive': 'timeout=10, max=50',
+39 verbose headers   connection: 'Keep-Alive' }
+40 error publish Failed PUT 403
+41 error Error: forbidden Attempting to modify version 0.1.1,
+41 error which was previously published on 2015-01-09T06:14:35.293Z.
+41 error This is forbidden, to maintain package integrity.
+41 error Please update the version number and try again.: automatic-version-increment
+41 error     at RegClient.<anonymous> (/home/noahli/install/node-v0.10.33-linux-x64/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+41 error     at Request._callback (/home/noahli/install/node-v0.10.33-linux-x64/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+41 error     at Request.self.callback (/home/noahli/install/node-v0.10.33-linux-x64/lib/node_modules/npm/node_modules/request/request.js:236:22)
+41 error     at Request.emit (events.js:98:17)
+41 error     at Request.<anonymous> (/home/noahli/install/node-v0.10.33-linux-x64/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+41 error     at Request.emit (events.js:117:20)
+41 error     at IncomingMessage.<anonymous> (/home/noahli/install/node-v0.10.33-linux-x64/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+41 error     at IncomingMessage.emit (events.js:117:20)
+41 error     at _stream_readable.js:943:16
+41 error     at process._tickCallback (node.js:419:13)
+42 error If you need help, you may report this *entire* log,
+42 error including the npm and node versions, at:
+42 error     <http://github.com/npm/npm/issues>
+43 error System Linux 3.13.0-43-generic
+44 error command "/home/noahli/install/node-v0.10.33-linux-x64/bin/node" "/home/noahli/install/node-v0.10.33-linux-x64/bin/npm" "publish"
+45 error cwd /home/noahli/workspace/automatic-version-increment
+46 error node -v v0.10.33
+47 error npm -v 1.4.28
+48 verbose exit [ 1, true ]
