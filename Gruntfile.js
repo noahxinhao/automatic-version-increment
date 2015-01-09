@@ -1,8 +1,8 @@
 /*
- * asset-cache-control
- * https://github.com/jessiehan/asset-cache-control
+ * automatic-version-increment
+ * https://github.com/noahxinhao/automatic-version-increment
  *
- * Copyright (c) 2013 hpp
+ * Copyright (c) 2014 lxh
  * Licensed under the MIT license.
  */
 
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       js: {
         options: {
         },
-		assetUrl:'demo/js/hello.js',
+    assetUrl:'demo/js/hello.js',
         files: {
           'tmp': ['demo/index.html'],
         },
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       css: {
         options: {
         },
-		assetUrl:'demo/css/hello.css',
+    assetUrl:'demo/css/hello.css',
         files: {
           'tmp': ['demo/index.html'],
         },
@@ -57,6 +57,6 @@ module.exports = function(grunt) {
   //grunt.registerTask('test', ['clean', 'cache', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['cache']);
+  grunt.registerTask('default', ['automatic']);
 
 };
