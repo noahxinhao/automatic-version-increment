@@ -53,23 +53,25 @@ Notice to write the correct path.
 ```js
 grunt.initConfig({
     automatic: {
-      js: {
-        options: {
-        },
-		assetUrl:'demo/js/hello.js',
-        files: {
-          'tmp': ['demo/index.html'],
-        },
-      },
-      css: {
-        options: {
-        },
-		assetUrl:'demo/css/hello.css',
-        files: {
-          'tmp': ['demo/index.html'],
-        },
-      },
-    },
+            js: {
+                options: {
+                    basicSrc: ["src/main/webapp/public/js_control/"]
+                },
+                assetUrl: ['**/*.js'],
+                files: {
+                    'tmp': ['src/main/webapp/views/**/*.jsp']
+                }
+            },
+            css: {
+                options: {
+                    basicSrc: ["src/main/webapp/public/css/"]
+                },
+                assetUrl: ['**/*.css'],
+                files: {
+                    'tmp': ['src/main/webapp/views/**/*.jsp']
+                }
+            }
+        }
 });
 ```
 

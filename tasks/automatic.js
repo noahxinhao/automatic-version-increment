@@ -25,8 +25,6 @@ module.exports = function (grunt) {
 
     function doReplaceUrl(fileSrc, assetUrls, options) {
 
-        grunt.log.success("#fileSrc:" + fileSrc)
-
         if (grunt.file.exists(fileSrc)) {
 
             var basicSrc_list = options.basicSrc;
