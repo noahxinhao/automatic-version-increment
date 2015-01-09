@@ -27,8 +27,9 @@ grunt.initConfig({
     automatic: {
       js: {
         options: {
+             basicSrc: ["demo/js/"]
         },
-		assetUrl:'demo/js/hello.js',
+    assetUrl:'hello.js',
         files: {
           'tmp': ['demo/index.html'],
         },
